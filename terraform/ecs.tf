@@ -94,7 +94,8 @@ resource "aws_ecs_service" "app" {
 
 # ALB for ECS
 resource "aws_lb" "ecs" {
-  name               = "${var.project_name}-ecs-alb"
+  name        = "${replace(var.project_name, "_", "-")}-ecs-tg"
+# name               = "${var.project_name}-ecs-alb"
   internal           = false
   load_balancer_type = "application"
   subnets            = module.vpc.public_subnets
