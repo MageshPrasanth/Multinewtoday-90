@@ -77,15 +77,25 @@ jobs:
     #    echo "✅ TF_STATE_BUCKET is set"
     #    fi
       
+    # - name: Terraform Apply
+    #   run: |
+    #     cd terraform
+    #     terraform apply \
+    #       -var="aws_region=${{ env.AWS_REGION }}" \
+    #       -var="project_name=${{ env.PROJECT_NAME }}" \
+    #       -var="environment=${{ env.ENVIRONMENT }}" \
+    #       -var="ecr_image_tag=${{ env.ECR_IMAGE_TAG }}" \
+    #       -auto-approve
     - name: Terraform Apply
       run: |
-        cd terraform
-        terraform apply \
-          -var="aws_region=${{ env.AWS_REGION }}" \
-          -var="project_name=${{ env.PROJECT_NAME }}" \
-          -var="environment=${{ env.ENVIRONMENT }}" \
-          -var="ecr_image_tag=${{ env.ECR_IMAGE_TAG }}" \
-          -auto-approve
+       cd terraform
+       terraform apply \
+       -var="aws_region=us-east-2" \
+       -var="project_name=multi-orchestrator-app" \
+       -var="environment=prod" \
+       -var="ecr_image_tag=latest" \
+       -auto-approve
+
   deploy-to-eks:
     runs-on: ubuntu-latest
     needs: terraform-apply
