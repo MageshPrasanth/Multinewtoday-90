@@ -38,6 +38,6 @@ module "ecr" {
 }
 
 # Data source to get the existing ECR repository URL
-data "aws_ecr_repository" "existing" {
+data "aws_ecr_repository1" "existing" {
   name = replace(var.project_name, "_", "-")
 }
