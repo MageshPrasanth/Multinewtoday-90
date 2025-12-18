@@ -52,7 +52,7 @@ jobs:
       run: |
         cd terraform
         terraform init \
-          -backend-config="bucket=${{ secrets.TF_STATE_BUCKET }}" \
+          -backend-config="bucket=${{ secrets.aws-terraform-state-bucket-eks1 }}" \
           -backend-config="key=${{ env.PROJECT_NAME }}/terraform.tfstate" \
           -backend-config="region=${{ env.AWS_REGION }}" \
           -backend-config="encrypt=true" \
