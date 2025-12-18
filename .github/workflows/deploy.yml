@@ -86,15 +86,26 @@ jobs:
     #       -var="environment=${{ env.ENVIRONMENT }}" \
     #       -var="ecr_image_tag=${{ env.ECR_IMAGE_TAG }}" \
     #       -auto-approve
+    
+    # - name: Terraform Apply
+    #   run: |
+    #    cd terraform
+    #    terraform apply \
+    #    -var="aws_region=us-east-2" \
+    #    -var="project_name=aws_ecr_repository" \
+    #    -var="environment=prod" \
+    #    -var="ecr_image_tag=latest" \
+    #    -auto-approve
+
     - name: Terraform Apply
       run: |
        cd terraform
-       terraform apply \
-       -var="aws_region=us-east-2" \
-       -var="project_name=aws_ecr_repository" \
-       -var="environment=prod" \
-       -var="ecr_image_tag=latest" \
-       -auto-approve
+        terraform apply \
+        -var="aws_region=us-east-2" \
+        -var="project_name=aws-ecr-repository" \
+        -var="environment=prod" \
+        -var="ecr_image_tag=latest" \
+        -auto-approve
 
   deploy-to-eks:
     runs-on: ubuntu-latest
