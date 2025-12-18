@@ -107,7 +107,8 @@ resource "aws_lb" "ecs" {
 }
 
 resource "aws_lb_target_group" "ecs" {
-  name        = "${var.project_name}-ecs-tg"
+  name        = "${replace(var.project_name, "_", "-")}-ecs-tg"
+ # name        = "${var.project_name}-ecs-tg"
   port        = 80
   protocol    = "HTTP"
   vpc_id      = module.vpc.vpc_id
