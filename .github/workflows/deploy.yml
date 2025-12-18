@@ -62,7 +62,7 @@ jobs:
       run: |
         cd terraform
         terraform init \
-          -backend-config="aws-terraform-state-bucket-eks1" \
+          -backend-config="bucket=aws-terraform-state-bucket-eks1" \
           -backend-config="key=multi-orchestrator-app/terraform.tfstate" \
           -backend-config="region=us-east-2" \
           -backend-config="encrypt=true" \
