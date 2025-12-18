@@ -91,7 +91,7 @@ jobs:
        cd terraform
        terraform apply \
        -var="aws_region=us-east-2" \
-       -var="project_name=multi-orchestrator-app" \
+       -var="project_name=aws_ecr_repository" \
        -var="environment=prod" \
        -var="ecr_image_tag=latest" \
        -auto-approve
