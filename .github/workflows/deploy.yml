@@ -102,7 +102,7 @@ jobs:
        cd terraform
         terraform apply \
         -var="aws_region=us-east-2" \
-        -var="project_name=aws-ecr-repository55" \
+        -var="project_name=aws-ecr-repository" \
         -var="environment=prod" \
         -var="ecr_image_tag=latest" \
         -auto-approve
