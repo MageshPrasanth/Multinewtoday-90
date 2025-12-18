@@ -58,6 +58,15 @@ jobs:
           -backend-config="encrypt=true" \
           -reconfigure
 
+    - name: Debug TF bucket
+      run: |
+       if [ -z "${{ secrets.TF_STATE_BUCKET }}" ]; then
+       echo "❌ TF_STATE_BUCKET is EMPTY"
+       exit 1
+       else
+       echo "✅ TF_STATE_BUCKET is set"
+       fi
+      
     - name: Terraform Apply
       run: |
         cd terraform
