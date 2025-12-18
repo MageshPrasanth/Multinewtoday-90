@@ -93,7 +93,7 @@ resource "aws_ecs_service" "app" {
 }
 
 # ALB for ECS
-resource "aws_lb" "ecs" {
+resource "awslb" "ecs" {
   name               = "${var.project_name}-ecs-alb"
   internal           = false
   load_balancer_type = "application"
@@ -105,7 +105,7 @@ resource "aws_lb" "ecs" {
   }
 }
 
-resource "aws_lb_target_group" "ecs" {
+resource "awslbtargetgroup" "ecs" {
   name        = "${var.project_name}-ecs-tg"
   port        = 80
   protocol    = "HTTP"
