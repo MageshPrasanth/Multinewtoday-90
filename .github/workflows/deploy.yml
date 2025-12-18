@@ -57,8 +57,6 @@ jobs:
           -backend-config="region=${{ env.AWS_REGION }}" \
           -backend-config="encrypt=true"
 
-  
-
     - name: Terraform Apply
       run: |
         cd terraform
